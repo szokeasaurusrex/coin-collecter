@@ -44,8 +44,9 @@ function key(type, event) {
 }
 
 function gameOver() {
+  cancelAnimationFrame(mov);
   var message;
-  var oldHighScore = JSON.parse(localStorage.highScore);
+  var oldHighScore = JSON.parse(localStorage.highScore);//start here
   function popup(beat) {
     function highScore(name) {
       this.score = score;
@@ -155,7 +156,7 @@ function text() {
 function init() {
   endgamereq = false;
   revives = 2;
-  paused = true;
+  paused = false;
   tsize = 20;
   c = document.getElementById('c');
   ctx = c.getContext('2d');
@@ -174,6 +175,7 @@ function init() {
   time = 3600;
   self.move();
   text();
+  if (paused == false) mov = requestAnimationFrame(move);
 }
 
 window.onload = function() {init();}

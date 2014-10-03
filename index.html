@@ -9,12 +9,20 @@
         background-color: black;
         margin: 0px;
       }
+      h1, p {
+        font-family: 'sans';
+        color: white;
+      }
+      h1 {
+        font-size: 128pt;
+      }
+      p {
+        font-size: 24pt;
+      }
     </style>
   </head>
-  <body>
-    <canvas id='c' onclick='location.href = "game.html";' height='1000px' width='600px'>
-      <h1>Coin Collector</h1>
-      <p>Your browser doesn't support this game, or you have Javascript disabled.</p>
-    </canvas>
+  <body onclick='location.href = "game.html"'>
+    <h1>Coin Collector</h1>
+    <p>Click anywhere to begin.</p>
   </body>
 </html>
