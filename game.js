@@ -46,7 +46,6 @@ function key(type, event) {
 function gameOver() {
   cancelAnimationFrame(mov);
   var message;
-  var oldHighScore = JSON.parse(localStorage.highScore);//start here
   function popup(beat) {
     function highScore(name) {
       this.score = score;
@@ -65,17 +64,20 @@ function gameOver() {
     message = 'Because you haven\'t played before, your score for this game is the new local high score.';
     popup(true);
   }
-  else if (oldHighScore.score > score) {
-    message = 'You failed to beat high score, ' + oldHighScore.name + '\'s high score of ' + oldHighScore.score + ' points!';
-    popup(false);
-  }
-  else if (oldHighScore.score < score) {
-    message = 'You beat ' + oldHighScore.name + '\'s high score of ' + oldHighScore.score + ' points!';
-    popup(true);
-  }
   else {
-    message = 'You tied the local high score!';
-    popup(false);
+    var oldHighScore = JSON.parse(localStorage.highScore);
+    if (oldHighScore.score > score) {
+      message = 'You failed to beat high score, ' + oldHighScore.name + '\'s high score of ' + oldHighScore.score + ' points!';
+      popup(false);
+    }
+    else if (oldHighScore.score < score) {
+      message = 'You beat ' + oldHighScore.name + '\'s high score of ' + oldHighScore.score + ' points!';
+      popup(true);
+    }
+    else {
+      message = 'You tied the local high score!';
+      popup(false);
+    }
   }
   location.reload();
 }
