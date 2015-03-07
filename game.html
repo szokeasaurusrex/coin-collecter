@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Coin collector</title>
-    <style>
-      body {
-        background-color: black;
-        margin: 0px;
-      }
-      canvas {
-        height: 100%;
-        width: 100%;
-        margin: 0px;
-      }
-    </style>
-    <script src='game.js'></script>
+    <title>Coin collecter</title>
   </head>
   <body>
-    <canvas id='c'></canvas>
+    <dialog id='instructions'>
+      <h1>Instructions</h1>
+      <p>
+        Hey there and welcome to Coin Collecter. You will be controlling a purple circle in the bottom of the screen by pressing the left and right arrow keys throughout the game. There will be yellow circles falling from the top of the screen. These yellow circles are valueable coins. It is your goal to collect as many of them as possible, before time runs out. Oh... and speaking about time, we measure time in cycles. You will start with 3600 cycles, which is about 1 minute. As an extra bonus, each time you collect a coin, you recieve 10 cycles of extra time, which alone isn't a lot, but it adds up. Also, occasionally there will be blue revive circles falling. They are usually faster than the coins. The first two times you collect a revive circle, your remaining cycle count will be reset to 3600, but if you collect a third one, the game will be immediately ended. You can monitor if it is safe to collect a revive circle by looking at the "revives remaining" count. If it is at zero, don't collect any more revive circles.
+      </p>
+      <p>
+        One more thing... If you ever need to pause the game, press the enter key. Please feel free to share this game with whoever you wish to. Press enter to start (or continue) playing.
+      </p>
+    </dialog>
+    <dialog id='paused'>
+      <h1>Paused</h1>
+      <p>
+        Press enter to continue or press "i" to view instructions
+      </p>
+    </dialog>
+    <canvas id='c'>Uh oh... Your browser does not support this game :(</canvas>
   </body>
 </html>
